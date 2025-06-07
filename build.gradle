@@ -1,0 +1,31 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+group 'org.example'
+version '0.0.1'
+
+application {
+    mainClass.set('org.botexample.DiscordBot')
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17) // Força o uso do Java 17
+    }
+}
+
+repositories {
+    mavenCentral() // Substitui jcenter()
+}
+
+dependencies {
+    implementation 'net.dv8tion:JDA:5.0.0-beta.24' // Versão mais recente
+    implementation 'org.slf4j:slf4j-api:2.0.16' // Atualiza para uma versão recente
+    implementation 'ch.qos.logback:logback-classic:1.5.8' // Substitui slf4j-log4j12
+}
+
+test {
+    useJUnitPlatform()
+}
